@@ -55,6 +55,7 @@ export function RockGame({onMenu,onScore,score}:RockGameProps){
     const [state,setState] = useState({
         duel:false,
         playerChoice:'',
+        
 
     })
     const handleChoice = useCallback(function(e:React.MouseEvent){
