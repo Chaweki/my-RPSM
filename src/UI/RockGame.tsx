@@ -5,18 +5,20 @@ import { ModalRules } from "./Modal-rules";
 import { Duel, Verdict } from "./duel";
 import { Action } from "../hooks/reducer";
 
-type s = {
-    rockScore: number;
-    lizardScore: number;
+type S = {
+    rockScore: number,
+    lizardScore: number
 }
 
 interface RockGameProps{
      onMenu?:React.Dispatch<Action>,
+
      onScore: (key:string,value:number)=>void,
      score:{
         rockScore: number;
         lizardScore: number;
     }
+
 }
 export function RockGame({onMenu,onScore,score}:RockGameProps){
     const listOfChoicesRock =['paper','scissors','rock']
@@ -25,7 +27,9 @@ export function RockGame({onMenu,onScore,score}:RockGameProps){
         'scissors':['paper'],
         'paper':['rock']
     }
+
     const [result,setResult] = useState('')
+
  
 
     const handleResult = useCallback(function(result:string){
@@ -38,9 +42,11 @@ export function RockGame({onMenu,onScore,score}:RockGameProps){
                 }else{
                     num=score.rockScore-1
                 }
+
             }else{num=score.rockScore+1}
             
             onScore('rockScore',num)
+
 
         }
 
@@ -55,6 +61,7 @@ export function RockGame({onMenu,onScore,score}:RockGameProps){
         e.preventDefault()
         e.stopPropagation()
         const item = e.target as HTMLElement
+
         setState({
             duel:true,
             playerChoice:item.dataset.type as string

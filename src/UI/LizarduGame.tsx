@@ -29,7 +29,6 @@ export function LizardGame({onMenu,onScore,score}:LizardGameProps){
         'lizard':['spock','paper'],
     }
     const [result,setResult] = useState('')
- 
 
     const handleResult = useCallback(function(result:string){
         setResult(result)

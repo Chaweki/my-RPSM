@@ -1,10 +1,13 @@
 {
   "name": "y",
   "private": true,
+  "homepage": "https://chaweki.github.io/my-RPSM/",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -17,6 +20,7 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@vitejs/plugin-react": "^1.3.0",
+    "gh-pages": "^4.0.0",
     "sass": "^1.53.0",
     "typescript": "^4.6.3",
     "vite": "^2.9.9"
