@@ -1,7 +1,7 @@
 {
   "name": "y",
   "private": true,
-  "homepage": "https://chaweki.github.io/my-RPSM/",
+  "homepage": "https://Chaweki.github.io/my-RPSM/",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
