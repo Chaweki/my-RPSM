@@ -11,17 +11,17 @@ const choices = function(listOfChoices:readonly string[]): string{
 export function duel(choice:string,house:string,winning:{[key:string]:string[]}){
     let result=null
     if(choice === house){
-        result= true
+        result= 'win'
 
     }else{
-        result = winning[choice].includes(house)
+        result = winning[choice].includes(house)?'win':'lost'
     }
     return result
 
      
 }
 interface VerdictProps{
-    result:boolean,
+    result:string,
     onMenu?:React.Dispatch<Action>,
 }
 export function Verdict({result,onMenu}:VerdictProps){
@@ -32,7 +32,7 @@ export function Verdict({result,onMenu}:VerdictProps){
                 
     }
     return <div className="result ">
-    <h1>{result? 'YOU WIN' : 'YOU LOSE'} </h1>
+    <h1>{result? result==='win'? 'YOU WIN' : 'YOU LOSE':null} </h1>
     <button onClick={handlePlayAgain}>PLAY AGAIN</button>
    </div>
 }
@@ -41,7 +41,7 @@ interface DuelProps{
     choice:string
     listOfChoices:readonly string[],
     winningCases:{[key:string]:string[]},
-    onResult:(result:boolean)=>void,
+    onResult:(result:string)=>void,
     game:string
 
 }
