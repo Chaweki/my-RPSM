@@ -1,4 +1,4 @@
-import { useState,useReducer } from 'react'
+import { useState,useReducer, useCallback } from 'react'
 
 import { Menu } from './UI/menu'
 import {reducerHome} from './hooks/reducer'
@@ -11,11 +11,14 @@ function App() {
     content:Menu
 })
 const [score,setScore] = useState({rockScore:0,lizardScore:0})
+const handleScore = useCallback(function(key:string,value:number){
+  setScore(s => ({...s,[key]:value}))
+},[])
  const {content: Content} = state
   return <>
         
 
-  <Content onMenu={dispatch} onScore={setScore} score={score}></Content>
+  <Content onMenu={dispatch} onScore={handleScore} score={score}></Content>
   
   </>
 }

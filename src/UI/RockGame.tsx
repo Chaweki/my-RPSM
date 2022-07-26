@@ -12,7 +12,7 @@ type s = {
 
 interface RockGameProps{
      onMenu?:React.Dispatch<Action>,
-     onScore: React.Dispatch<s>,
+     onScore: (key:string,value:number)=>void,
      score:{
         rockScore: number;
         lizardScore: number;
@@ -25,10 +25,10 @@ export function RockGame({onMenu,onScore,score}:RockGameProps){
         'scissors':['paper'],
         'paper':['rock']
     }
-    const [result,setResult] = useState(undefined)
+    const [result,setResult] = useState('')
  
 
-    const handleResult = useCallback(function(result:boolean){
+    const handleResult = useCallback(function(result:string){
         setResult(result)
         let num=0
         if(result!=undefined){
@@ -40,7 +40,7 @@ export function RockGame({onMenu,onScore,score}:RockGameProps){
                 }
             }else{num=score.rockScore+1}
             
-            onScore(s=>({...s,rockScore:num}))
+            onScore('rockScore',num)
 
         }
 
@@ -54,17 +54,17 @@ export function RockGame({onMenu,onScore,score}:RockGameProps){
     const handleChoice = useCallback(function(e:React.MouseEvent){
         e.preventDefault()
         e.stopPropagation()
-        
+        const item = e.target as HTMLElement
         setState({
             duel:true,
-            playerChoice:e.target.dataset.type
+            playerChoice:item.dataset.type as string
         })
     },[])
     return<>
      <div className="container">
         <Header logo="images/logo.svg" score={score.rockScore}></Header>
    { !state.duel? <PlayerChoice game="rock" types={listOfChoicesRock} onChoice={handleChoice} /> : <Duel game="rock" winningCases={winningRock} onResult={handleResult} listOfChoices={listOfChoicesRock} choice={state.playerChoice} />}
-   {result!=undefined?<Verdict result={result} onMenu={onMenu} ></Verdict>:null}
+   {result?<Verdict result={result} onMenu={onMenu} ></Verdict>:null}
    
    <ModalRules rules="../../images/image-rules.svg"></ModalRules>
     </div>

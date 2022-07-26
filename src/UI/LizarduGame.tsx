@@ -12,7 +12,7 @@ type s = {
 
 interface LizardGameProps{
      onMenu?:React.Dispatch<Action>,
-     onScore: React.Dispatch<s>,
+     onScore: (key:string,value:number)=>void,
      score:{
         rockScore: number;
         lizardScore: number;
@@ -28,10 +28,10 @@ export function LizardGame({onMenu,onScore,score}:LizardGameProps){
         'spock':['scissors','rock'],
         'lizard':['spock','paper'],
     }
-    const [result,setResult] = useState(undefined)
+    const [result,setResult] = useState('')
  
 
-    const handleResult = useCallback(function(result:boolean){
+    const handleResult = useCallback(function(result:string){
         setResult(result)
         let num=0
         
@@ -44,7 +44,7 @@ export function LizardGame({onMenu,onScore,score}:LizardGameProps){
                 }
             }else{num=score.lizardScore+1}
             
-            onScore(s=>({...s,lizardScore:num}))
+            onScore('lizardScore',num)
 
         }
 
@@ -59,16 +59,18 @@ export function LizardGame({onMenu,onScore,score}:LizardGameProps){
     const handleChoice = useCallback(function(e:React.MouseEvent){
         e.preventDefault()
         e.stopPropagation()
+        const item = e.target as HTMLElement
+
         setState({
             duel:true,
-            playerChoice:e.target.dataset.type
+            playerChoice:item.dataset.type as string
         })
     },[])
     return<>
      <div className="container">
         <Header logo="images\logo-bonus.svg" score={score.lizardScore}></Header>
    { !state.duel? <PlayerChoice game="lizard" types={listOfChoicesLizard} onChoice={handleChoice} /> : <Duel game="lizard" winningCases={winningLizard} onResult={handleResult} listOfChoices={listOfChoicesLizard} choice={state.playerChoice} />}
-   {result!=undefined?<Verdict result={result} onMenu={onMenu} ></Verdict>:null}
+   {result?<Verdict result={result} onMenu={onMenu} ></Verdict>:null}
    
    <ModalRules rules='../../images/image-rules-bonus.svg'></ModalRules>
     </div>
