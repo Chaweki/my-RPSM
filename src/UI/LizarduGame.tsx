@@ -28,7 +28,7 @@ export function LizardGame({onMenu,onScore,score}:LizardGameProps){
         'spock':['scissors','rock'],
         'lizard':['spock','paper'],
     }
-    const [result,setResult] = useState(undefined)
+    const [result,setResult] = useState(false)
  
 
     const handleResult = useCallback(function(result:boolean){
@@ -44,7 +44,7 @@ export function LizardGame({onMenu,onScore,score}:LizardGameProps){
                 }
             }else{num=score.lizardScore+1}
             
-            onScore(s=>({...s,lizardScore:num}))
+            onScore({...score,lizardScore:num})
 
         }
 
@@ -59,9 +59,11 @@ export function LizardGame({onMenu,onScore,score}:LizardGameProps){
     const handleChoice = useCallback(function(e:React.MouseEvent){
         e.preventDefault()
         e.stopPropagation()
+        const item = e.target as HTMLElement
+
         setState({
             duel:true,
-            playerChoice:e.target.dataset.type
+            playerChoice:item.dataset.type as string
         })
     },[])
     return<>
