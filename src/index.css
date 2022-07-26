@@ -1,0 +1,13 @@
+/* body{
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-size: 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  
+  height:100vh;
+  background: no-repeat linear-gradient(hsl(214, 47%, 23%),hsl(237, 49%, 15%));
+}
+ */

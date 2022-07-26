@@ -1,0 +1,59 @@
+.duel{
+    width: 100%;
+    height: 40%;
+    padding-bottom: 90px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.choice{
+    &::after{
+        display: block;
+        content: 'You picked';
+        width: 160px;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        color: #fff;
+        font-weight: 700;
+        letter-spacing: 0.1rem;
+        position: absolute;
+        bottom: -75%;
+        left: -11%;
+
+    }
+
+    &-house{
+
+        
+        
+     
+
+        &-empty{
+        background-color: #192845;
+        position: relative;
+        padding: 1rem;
+        width: 65px;
+        height: 65px;
+        padding: 1rem;
+        border-radius: 50%;
+       
+        
+
+    }         
+    &::after{
+        display: block;
+        content: 'the house picked';
+        width: 160px;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        color: #fff;
+        font-weight: 700;
+        letter-spacing: 0.1rem;
+        position: absolute;
+        bottom: -75%;
+        left: -42%;
+    
+
+    }}
+} 

@@ -1,0 +1,62 @@
+body{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 16px;
+
+
+    
+    height:100vh;
+    background: no-repeat linear-gradient(hsl(214, 47%, 23%),hsl(237, 49%, 15%));
+  }
+#root{
+  height: 100vh;
+  width: 100vw;
+
+}
+.container{
+  display: flex;
+  padding: 25px;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.header{
+    display: flex;
+    min-width: 308px;
+    max-width: 700px;
+    
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 1rem;
+    justify-content: space-between;
+    
+    div{
+    display: flex;
+    }
+    img {
+    width: 50%;
+    max-width: 154px;
+  }
+     p{
+    background: #fff;
+    border-radius: 3px;
+    padding: 9px 15px;
+    display: flex;
+    flex-direction: column;
+  
+    align-items: center;
+    
+  }
+  .score-text{
+    color: hsl(229, 64%, 46%);
+    text-transform: uppercase;
+    font-size: 0.5rem;
+    letter-spacing: 1px;
+  }
+  .score{
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: hsl(229, 25%, 31%);
+  }
+}

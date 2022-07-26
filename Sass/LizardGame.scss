@@ -1,0 +1,66 @@
+
+$items:
+lizard-rock rock linear-gradient(hsl(349, 71%, 52%),hsl(349, 70%, 56%)) ,
+lizard-paper paper linear-gradient(hsl(230, 89%, 62%),hsl(230, 89%, 65%))   ,
+lizard-scissors scissors linear-gradient(hsl(39, 89%, 49%),hsl(40, 84%, 53%)) ,
+lizard-spock spock linear-gradient(hsl(189, 59%, 53%),hsl(189, 58%, 57%)),
+lizard-lizard lizard linear-gradient(hsl(261, 73%, 60%),hsl(261, 72%, 63%))
+;  
+
+@each $item in $items{
+.#{nth($item,1)} {
+       box-shadow: inset -1px 7px 2px -3px hsl(217deg 16% 45%);
+       width: 65px;
+       height: 65px;
+       padding: 1rem;
+       border-radius: 50%;
+                 
+       position: relative;
+     
+       background: no-repeat center url('images/icon-#{nth($item,2)}.svg'),#fff;
+       background-size: 40%;
+
+   
+       &:before{
+           content: '';
+           background: nth($item,3);
+           
+           width: 85px;
+           height: 85px;
+           position: absolute;
+           transform: translate(-10px, -10px);
+           top: 0;
+           right: 0;
+           bottom: 0;
+           left: 0;
+           z-index: -1;
+           border-radius: 50%;
+       } 
+       
+       
+     
+     }
+
+  
+}
+.lizard-scissors{
+    grid-column-end: span 2;
+    }
+    
+
+.player-lizard{
+    background: no-repeat center url(images/bg-pentagon.svg);
+    background-size: 70%;
+    position: relative;
+    width: 100%;
+    height: 52%;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    align-items: stretch;
+    justify-items: center;
+}
+//margin-bottom: 3rem ;

@@ -1,0 +1,51 @@
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes translate_right {
+    0%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    
+}
+@keyframes translate_left {
+    0%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    
+}
+.fadein{
+    animation: fadeIn 300ms forwards;
+}
+.fadeout{
+    animation: fadeOut 300ms forwards;
+}
+.goleft{
+    animation: translate_left 1s forwards;
+}
+.goright{
+    animation: translate_right 1s forwards;
+}

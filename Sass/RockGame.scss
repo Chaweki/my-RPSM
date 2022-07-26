@@ -1,0 +1,65 @@
+
+$items:
+    rock-rock rock linear-gradient(hsl(349, 71%, 52%),hsl(349, 70%, 56%)) ,
+    rock-paper paper linear-gradient(hsl(230, 89%, 62%),hsl(230, 89%, 65%))    ,
+    rock-scissors scissors linear-gradient(hsl(39, 89%, 49%),hsl(40, 84%, 53%))   
+;  
+@each $item in $items{
+    .#{nth($item,1)} {
+           box-shadow: inset -1px 7px 2px -3px hsl(217deg 16% 45%);
+           width: 65px;
+           height: 65px;
+           padding: 1rem;
+           border-radius: 50%;
+                     
+           position: relative;
+         
+           background: no-repeat center url('images/icon-#{nth($item,2)}.svg'),#fff;
+           background-size: 40%;
+   
+       
+           &:before{
+               content: '';
+               background: nth($item,3);
+               
+               width: 85px;
+               height: 85px;
+               position: absolute;
+               transform: translate(-10px, -10px);
+               top: 0;
+               right: 0;
+               bottom: 0;
+               left: 0;
+               z-index: -1;
+               border-radius: 50%;
+           } 
+           
+           
+         
+         }
+   
+      
+   }
+.rock-rock{
+    grid-column-end: span 2;
+}
+
+
+.player-rock{
+    background: no-repeat center url("images/bg-triangle.svg") ;
+    background-size: 50%;
+    position: relative;
+    width: 100%;
+    height: 40%;
+    text-align: center;
+
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    align-items: center;
+    justify-items: center;
+
+  }
