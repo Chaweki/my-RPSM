@@ -7,7 +7,7 @@ import { Action } from "../hooks/reducer";
 
 type S = {
     rockScore: number,
-    lizardScore: number
+    lizardScore: number,
 }
 
 interface RockGameProps{
