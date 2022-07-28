@@ -14,7 +14,7 @@ export function Menu<T extends ManuProps>({onMenu}:T){
     const [show,setShow] = useState(true)
     const [lizard,setLizard] = useState(true)
     const [rock,setRock] = useState(true)
-    const duration = 500
+    const duration = 1000
 
     const hiddenRock=useCallback((e:React.MouseEvent)=>{
         e.preventDefault()
