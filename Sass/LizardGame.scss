@@ -17,7 +17,7 @@ lizard-lizard lizard linear-gradient(hsl(261, 73%, 60%),hsl(261, 72%, 63%))
                  
        position: relative;
      
-       background: no-repeat center url('images/icon-#{nth($item,2)}.svg'),#fff;
+       background: no-repeat center url('/images/icon-#{nth($item,2)}.svg'),#fff;
        background-size: 40%;
 
    
@@ -49,7 +49,7 @@ lizard-lizard lizard linear-gradient(hsl(261, 73%, 60%),hsl(261, 72%, 63%))
     
 
 .player-lizard{
-    background: no-repeat center url(images/bg-pentagon.svg);
+    background: no-repeat center url('/images/bg-pentagon.svg');
     background-size: 70%;
     position: relative;
     width: 100%;

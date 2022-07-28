@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import closeIcon from "../../images/icon-close.svg"
 import { Animate } from "../utils/animation";
 
 interface Modal{
@@ -34,6 +35,6 @@ function Modal<T extends ModalProps>({onClose,rules}:T){
     return createPortal( <div className="modal">
     <h1>Rules</h1>
     <img  src={rules} alt="rules of the game"/>
-    <img src="../../images/icon-close.svg"  alt="close button" onClick={onClose} /> 
+    <img src={closeIcon}  alt="close button" onClick={onClose} /> 
     </div>,document.body)
 }

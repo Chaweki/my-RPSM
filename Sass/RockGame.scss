@@ -14,7 +14,7 @@ $items:
                      
            position: relative;
          
-           background: no-repeat center url('images/icon-#{nth($item,2)}.svg'),#fff;
+           background: no-repeat center url('/images/icon-#{nth($item,2)}.svg'),#fff;
            background-size: 40%;
    
        
@@ -46,7 +46,7 @@ $items:
 
 
 .player-rock{
-    background: no-repeat center url("images/bg-triangle.svg") ;
+    background: no-repeat center url("/images/bg-triangle.svg") ;
     background-size: 50%;
     position: relative;
     width: 100%;

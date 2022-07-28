@@ -1,5 +1,7 @@
 import React, { ReactElement, useCallback, useContext, useState } from "react";
 import {PlayerChoice } from "./item";
+import imageRules from'../../images/image-rules-bonus.svg';
+import logo from "../../images/logo-bonus.svg";
 import { Header } from "./Header";
 import { ModalRules } from "./Modal-rules";
 import { Duel, Verdict } from "./duel";
@@ -29,6 +31,7 @@ export function LizardGame({onMenu,onScore,score}:LizardGameProps){
         'lizard':['spock','paper'],
     }
     const [result,setResult] = useState('')
+ 
 
     const handleResult = useCallback(function(result:string){
         setResult(result)
@@ -67,11 +70,11 @@ export function LizardGame({onMenu,onScore,score}:LizardGameProps){
     },[])
     return<>
      <div className="container">
-        <Header logo="images\logo-bonus.svg" score={score.lizardScore}></Header>
+        <Header logo={logo} score={score.lizardScore}></Header>
    { !state.duel? <PlayerChoice game="lizard" types={listOfChoicesLizard} onChoice={handleChoice} /> : <Duel game="lizard" winningCases={winningLizard} onResult={handleResult} listOfChoices={listOfChoicesLizard} choice={state.playerChoice} />}
    {result?<Verdict result={result} onMenu={onMenu} ></Verdict>:null}
    
-   <ModalRules rules='../../images/image-rules-bonus.svg'></ModalRules>
+   <ModalRules rules={imageRules}></ModalRules>
     </div>
     </> 
 }

@@ -33,7 +33,7 @@
     border-radius: 50%;
    position: relative;
    
-    background: no-repeat center url('images/icon-rock.svg'),#fff;
+    background: no-repeat center url('/images/icon-rock.svg'),#fff;
     background-size: 40%;
 
     &:before{
@@ -53,7 +53,7 @@
     } 
     &::after{
         content: '';
-        background: no-repeat url('images/logo.svg');
+        background: no-repeat url('/images/logo.svg');
         
         background-size: 102%;
         
@@ -81,7 +81,7 @@ padding: 1rem;
 border-radius: 50%;
 position: relative;
    
-background: no-repeat center url('images/icon-lizard.svg'),#fff;
+background: no-repeat center url('/images/icon-lizard.svg'),#fff;
 background-size: 40%;
 
 &:before{
@@ -101,7 +101,7 @@ background-size: 40%;
     } 
     &::after{
         content: '';
-        background: no-repeat url('images/logo-bonus.svg');
+        background: no-repeat url('/images/logo-bonus.svg');
         
         background-size: 102%;
         
